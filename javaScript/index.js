@@ -299,7 +299,17 @@ function crearLista (){
     td.textContent =`Cantidad${item.cantidad}`;
     tr.appendChild(td)    
 
+    td= document.createElement('td');
+    td.textContent = calcularPrecio()
+    tr.appendChild(td)
   })
 }
+function calcularPrecio (){
+
+   let total = carrito.reduce((acum,item)=>{return acum + item.cantidad*item.producto.precio},0 )
+
+console.log(total)
+}
+
 
 
