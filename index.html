@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estiloCss/estilo.css">
+    <title>Ecomerce</title>
+</head>
+<body>
+    <header>
+        <nav >
+            <ul>
+                <li><img src="./multimedia/Facebook.png" alt="Logo de Facebook"></li>
+                <li><img src="./multimedia/Instagram.png" alt="Logo de Instagram"></li>
+                <li><img src="./multimedia/ubicacion.png" alt="Logo de Ubicacion"></li>
+            </ul>
+        </nav>
+    </header>
+
+<main>
+
+    <form id='formulario'action="">
+
+
+        
+        <label for="nombre"> Ingrese su nombre</label>
+        <input class = 'input_usuario' type="text" id="nombre" >
+        <span class = 'mensaje_input'></span>
+
+        <label for="apellido"> Ingrese su apellido</label>
+        <input class = 'input_usuario' type="text" id="apellido" >
+        <span class = 'mensaje_input'></span>
+
+        <button id="enviar_datos" type="submit"> Enviar Datos</button>
+    </form>
+
+
+        <section>
+            <div id="productoUno" class="producto">
+                <picture>
+                    <img src="./multimedia/gaseosas/cocacola.jpg" alt="cocacola">
+                </picture>
+                <button class="agregar" id="agregar_coca" type="button">Agregar</button>
+                <button class="quitar" id="quitar_coca" type="button">Quitar</button>
+            </div>
+            <div id="productoDos" class="producto">
+                <picture>
+                    <img src="./multimedia/gaseosas/fanta.jpg" alt="Fanta">
+                </picture>
+                <button class="agregar" id="agregar_fanta" type="button">Agregar</button>
+                <button class="quitar" id="quitar_fanta" type="button">Quitar</button>
+            </div>
+            </div>
+            <div id="productoTres" class="producto">
+                <picture>
+                    <img src="./multimedia/gaseosas/sprite.jpg" alt="sprite">
+                </picture>
+                <button class="agregar" id="agregar_sprite"  type="button">Agregar</button>
+                <button class="quitar" id="quitar_sprite" type="button">Quitar</button>
+            </div>
+            </div>
+           
+        </section>
+        
+        <div id="lista">
+
+
+        </div>
+        
+</main>
+<script src="./javaScript/productos.js"></script>
+<script src="./javaScript/item.js"></script>
+<script src="./javaScript/index.js"></script>
+</body>
+</html>

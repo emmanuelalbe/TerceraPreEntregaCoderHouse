@@ -1,0 +1,144 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+html{
+    font-size:62.5%;
+}
+header{
+    height:auto;
+    background-color: rgb(120, 168, 153);
+}
+
+header nav ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header nav ul li{
+    list-style: none;
+}
+
+header nav ul li img {
+    width: 5rem;
+    border-radius: 8rem;
+}
+
+header nav div img{
+    width: 8rem;
+}
+
+header nav {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    border: 0.1rem solid black;
+    margin: 4rem auto 4rem;
+    padding: 4rem;
+    border-radius: 2rem;
+    box-shadow:1rem 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    font-size: 1.5rem;
+}
+
+label {
+    margin-bottom:1.7rem;
+    font-weight: bold;
+    text-decoration:underline;}
+
+input {
+    padding:1rem 4rem;
+    margin-bottom: 2rem;
+    border: 0.1rem solid #877b7b8c;
+    border-radius: 1.2rem;
+    box-shadow: 0.4rem 0.3rem 0.6rem rgba(186, 144, 15, 0.632);
+}
+
+
+span{
+margin: 2rem 0rem 4rem;
+}
+.producto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.agregar, .quitar {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.agregar:hover, .quitar:hover {
+    background-color: #0056b3;
+}
+
+.producto {
+    grid-area: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#productoUno {
+    grid-area: coca;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+#productoDos {
+    grid-area: fanta;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+#productoTres {
+    grid-area: sprite;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+#productoCuatro {
+    grid-area: blem;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+#productoCinco {
+    grid-area: cif;
+    border: 0.2rem solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+section {
+    display: grid;
+    grid-template-areas: 
+        "coca fanta sprite"
+        "blem cif .";
+    grid-gap: 2rem;
+    justify-items: center;
+    margin: 2rem;
+}
+
+
