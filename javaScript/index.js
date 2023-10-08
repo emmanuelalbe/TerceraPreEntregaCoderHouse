@@ -59,16 +59,14 @@ agregarCoca.addEventListener('click', () => {
   localStorage.setItem(productosSuper[0].nombre, cantidadProducto)
 
   let carritoLocal = JSON.parse(localStorage.getItem ('carrito')) || [];
-  
-  let pepe = carritoLocal.findIndex(item => item.producto.nombre === productosSuper[0].nombre);
-  
+    
   let index = carrito.findIndex(item => item.producto.nombre === productosSuper[0].nombre);
 
-  if (index !== -1 && pepe !== -1) {
+  if (index !== -1 ) {
 
     carrito[index].cantidad = cantidadProducto;
    
-    carritoLocal[pepe].cantidad = cantidadProducto;
+    carritoLocal[index].cantidad = cantidadProducto;
 
     localStorage.setItem('carrito', JSON.stringify(carritoLocal))
 
@@ -76,9 +74,7 @@ agregarCoca.addEventListener('click', () => {
 
     carrito.push(new Item(productosSuper[0], cantidadProducto));
 
-    let carritoJason = JSON.stringify(carrito) 
-
-    localStorage.setItem('carrito',carritoJason);
+    localStorage.setItem('carrito',JSON.stringify(carrito));
     
   }
 
@@ -94,16 +90,14 @@ agregarFanta.addEventListener('click',()=>{
   localStorage.setItem(productosSuper[1].nombre, cantidadProducto)
 
   let carritoLocal = JSON.parse(localStorage.getItem ('carrito')) || [];
-  
-  let pepe = carritoLocal.findIndex(item => item.producto.nombre === productosSuper[1].nombre);
-  
+    
   let index = carrito.findIndex(item => item.producto.nombre === productosSuper[1].nombre);
 
   if (index !== -1 && pepe !== -1) {
 
     carrito[index].cantidad = cantidadProducto;
    
-    carritoLocal[pepe].cantidad = cantidadProducto;
+    carritoLocal[index].cantidad = cantidadProducto;
 
     localStorage.setItem('carrito', JSON.stringify(carritoLocal))
 
@@ -111,9 +105,7 @@ agregarFanta.addEventListener('click',()=>{
 
     carrito.push(new Item(productosSuper[1], cantidadProducto));
 
-    let carritoJason = JSON.stringify(carrito) 
-
-    localStorage.setItem('carrito',carritoJason);
+    localStorage.setItem('carrito',JSON.stringify(carrito));
     
   }
 
@@ -130,42 +122,40 @@ agregarSprite.addEventListener('click',()=>{
   localStorage.setItem(productosSuper[2].nombre, cantidadProducto)
 
   let carritoLocal = JSON.parse(localStorage.getItem ('carrito')) || [];
-  
-  let pepe = carritoLocal.findIndex(item => item.producto.nombre === productosSuper[2].nombre);
-  
+    
   let index = carrito.findIndex(item => item.producto.nombre === productosSuper[2].nombre);
 
-  if (index !== -1 && pepe !== -1) {
+  if (index !== -1 ) {
 
     carrito[index].cantidad = cantidadProducto;
    
-    carritoLocal[pepe].cantidad = cantidadProducto;
+    carritoLocal[index].cantidad = cantidadProducto;
 
     localStorage.setItem('carrito', JSON.stringify(carritoLocal))
 
-  } else {
+  }else {
 
     carrito.push(new Item(productosSuper[2], cantidadProducto));
 
-    let carritoJason = JSON.stringify(carrito) 
-
-    localStorage.setItem('carrito',carritoJason);
+    localStorage.setItem('carrito',JSON.stringify(carrito));
     
   }
 
-crearLista()
+  crearLista()
   console.log(carrito);
 });
 
 quitarCoca.addEventListener('click', () => {
+
   let cantidadProducto = parseInt(localStorage.getItem(`${productosSuper[0].nombre}`)) || 0;
 
   if (cantidadProducto > 0) {
+
     cantidadProducto--;
 
     localStorage.setItem(`${productosSuper[0].nombre}`, cantidadProducto);
 
-    const index = carrito.findIndex(item => item.producto.nombre === productosSuper[0].nombre);
+    const index = carrito.findIndex(item => item.producto.nombre.includes(productosSuper[0].nombre));
 
     let carritoLocal = JSON.parse(localStorage.getItem ('carrito')) || [];
 
@@ -183,13 +173,10 @@ quitarCoca.addEventListener('click', () => {
 
         localStorage.removeItem(`${productosSuper[0].nombre}`);
         
-        let carritoJason = JSON.stringify(carrito) 
-
-       localStorage.setItem('carrito',carritoJason);
+        localStorage.setItem('carrito', JSON.stringify(carrito) );
       }
     }
     crearLista();
-
     console.log(carrito);
   }
 });
@@ -219,14 +206,12 @@ quitarFanta.addEventListener('click', () => {
         carrito.splice(index, 1);
 
         localStorage.removeItem(`${productosSuper[1].nombre}`);
-        
-        let carritoJason = JSON.stringify(carrito) 
 
-       localStorage.setItem('carrito',carritoJason);
+        localStorage.setItem('carrito',JSON.stringify(carrito));
+
       }
     }
     crearLista();
-
     console.log(carrito);
   }
 });
@@ -257,51 +242,53 @@ quitarSprite.addEventListener('click', () => {
 
         localStorage.removeItem(`${productosSuper[2].nombre}`);
         
-        let carritoJason = JSON.stringify(carrito) 
-
-       localStorage.setItem('carrito',carritoJason);
+       localStorage.setItem('carrito',JSON.stringify(carrito) );
       }
     }
     crearLista();
-
     console.log(carrito);
   }
 });
 
-function crearLista (){
 
+function crearLista (){
   const lista = document.querySelector('#lista');
-  lista.innerHTML = ` `;
+  lista.innerHTML = ``;
 
   carrito.forEach((item,index)=>{
 
-    let tr = document.createElement ('tr');
-    lista.appendChild(tr)
+    let tr = document.createElement('tr');
+    tr.classList.add('fila-producto');
+    lista.appendChild(tr);
     
-
-    let th = document.createElement ('th');
-    th.textContent =`Producto Numero ${index+1} ` 
+    let th = document.createElement('th');
+    th.classList.add('producto-numero');
+    th.textContent = `Producto Numero ${index+1}`;
     tr.appendChild(th);
 
     let td = document.createElement('td');
-    td.textContent =`Producto ${item.producto.nombre}--------             `
-    tr.appendChild(td)
+    td.classList.add('nombre-producto');
+    td.textContent = `Producto ${item.producto.nombre}`;
+    tr.appendChild(td);
 
     td = document.createElement('td');
-    td.textContent =`Marca del Producto ${item.producto.marca}--------        `;
-    tr.appendChild(td)
+    td.classList.add('marca-producto');   
+     td.textContent = `Marca ${item.producto.marca}`;
+    tr.appendChild(td);
 
     td = document.createElement('td');
-    td.textContent = ` Precio  del Producto $${item.producto.precio} -------         `;
-    tr.appendChild(td)
+    td.classList.add('precio-producto');
+    td.textContent = ` Precio del Producto $${item.producto.precio}`;
+    tr.appendChild(td);
 
     td = document.createElement('td');
-    td.textContent =`Cantidad${item.cantidad}`;
-    tr.appendChild(td)    
+    td.classList.add('cantidad-producto'); 
+    td.textContent = `Cantidad${item.cantidad}`;
+    tr.appendChild(td);    
 
-    
   })
 }
+
 function calcularPrecio (){
 
    let total = carrito.reduce((acum,item)=>{return acum + item.cantidad*item.producto.precio},0 )
@@ -312,13 +299,11 @@ console.log(total)
 
 
 const total = document.querySelector('#total');
+
 total.addEventListener('click',(e)=>{
 
   let total = carrito.reduce((acum,item)=>{return acum + item.cantidad*item.producto.precio},0 );
 
   e.target.nextElementSibling.textContent = ` el total es de ${total}`
-
-
-
 
 });

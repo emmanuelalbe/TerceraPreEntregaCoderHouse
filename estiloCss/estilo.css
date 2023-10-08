@@ -142,3 +142,36 @@ section {
 }
 
 
+.fila-producto {
+    border: 0.1rem solid #37be0f;
+    font-size: 2rem;
+  }
+  
+  .producto-numero {
+    font-weight: bold;
+    border:0.1rem solid black;
+    padding:1rem 2rem ;
+  }
+  
+  .nombre-producto {
+    font-weight: bold;
+    color: #333;
+    font-size: 2rem;
+    border:0.1rem solid black;
+  }
+  
+  .marca-producto {
+    color: #f00e0e;
+    margin: 4rem;
+    border:0.1rem solid black;
+    padding: 2rem;
+  }
+  
+  .precio-producto {
+    font-weight: bold;
+    color: #009688;
+    margin: 4rem;
+  }
+  
+
+  
